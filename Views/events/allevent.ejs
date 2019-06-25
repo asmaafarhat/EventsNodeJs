@@ -1,0 +1,41 @@
+<html>
+    <head><title>Edit Event</title> </head>
+
+
+<table class=" alert-primary table text-center " style=" margin-top: 120px;">
+        <thead class="bg-dark text-white">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">SpeakerName</th>
+            <th scope="col">Others</th>
+            <th scope="col">Option</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% events.forEach((event)=>{%>
+            <tr>
+                <td><%=event._id%></td>
+                <td><%=event.title%></td>
+                <td><%=event.mainSpeaker.firstName%><%=event.mainSpeaker.lastName%></td>
+                <td>
+                    <ul class="list-inline">
+                        <%event.others.forEach((speaker)=>{%>
+                            <li class="list-inline-item"><%=speaker.firstName%><%=speaker.lastName%></li>
+                        <%})%>
+                    </ul>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="/admin/editevent/<%=event.mainSpeaker._id%>">Edit</a>
+                    <a class="btn btn-danger" href="/admin/deleteevent/<%=event.mainSpeaker._id%>">Delete</a>
+                  </td>
+            </tr>
+        <%})%>
+    </tbody>
+    <tfoot class="table-dark text-center" >
+            <tr>
+                <th colspan="5">User Details of Fields</th>
+            </tr>
+        </tfoot>
+</table>
+</html>

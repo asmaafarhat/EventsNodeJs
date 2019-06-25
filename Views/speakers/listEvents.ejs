@@ -1,0 +1,35 @@
+<br><br>
+<h3> events List </h3>                      
+</table>
+<table class="table table-dark">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">speakername</th>
+            <th scope="col">Others</th>
+            </tr>
+        </thead>
+        <tbody>
+                <% events.forEach((event)=>{%>
+                    <tr>
+                        <td><%=event._id%></td>
+                        <td><%=event.title%></td>
+                        <td><%=event.mainSpeaker.fullName%></td>
+                        <td>
+                            <ul>
+                                <%event.others.forEach((speaker)=>{%>
+                                    <li><%=speaker.fullName%></li>
+                                <%})%>
+                            </ul>
+                        </td>
+                        <td>
+                                <!-- /speakers/acceptEvent/<%=username%> -->
+                            <a class="btn btn-success" href="/speakers/acceptEvent/<%=username%>">Accept</a>
+                            <a class="btn btn-danger" href="/speakers/reject/<%=event._id%>&<%=username%>">Reject</a>
+                        </td>
+                    </tr>
+                <%})%>    
+        </tbody>
+        </table>
+<br/>

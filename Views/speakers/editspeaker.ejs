@@ -1,0 +1,47 @@
+<body>
+	<div class="modal-dialog" >
+		<div class="modal-content">
+			<hr />
+			<div class="modal-body">
+				<form action="/speakers/edit/<%=speaker._id%>" method="post" enctype="multipart/form-data"  role="form" >
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-user"></span>
+							</span>
+							<input type="text" name="id" value="<%=speaker._id%>"  class="form-control" placeholder="ID" disabled />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock"></span>
+							</span>
+							<input type="text" name="name" value="<%=speaker.fullName%>" class="form-control" placeholder="Name"  />
+
+						</div>
+
+                    </div>
+                    <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+								</span>
+								<img src="/images/<%=speaker.image%>" style="width:200px;height:200px"/>
+                                <input type="file" name="speakerImage" class="form-control" />
+    
+                            </div>
+    
+                        </div>
+
+					<div class="form-group text-center">
+						<button type="submit" class="btn btn-success btn-lg" >update</button>
+						
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        window.addEventListener("load",function(){
+            if(!RegExp.escape) {
+                RegExp.escape = function(s) {
+                    // return String(s).replace(/[\\^$*+?.()|[\]{}]/g, '\\$&');
+                };
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form action="/register" method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-account material-icons-name"> Full Name :</i></label>
+                                <br><br>
+                                <input type="text" name="name" id="name" placeholder="Your Name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="fa fa-email"></i>E-mail :</label>
+                                <br><br>
+                                <input type="email" name="email" value="a@yahoo.com" id="email" placeholder="Your Email" required />
+                            </div>
+                            <div class="form-group">
+                                    <label for="JobTitle"><i class="fa fa-account material-icons-name"> JobTitle :</i></label>
+                                    <br><br>
+                                    <input type="text" name="JobTitle"value="prog" id="JobTitle" placeholder="Job Title" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="fa fa-lock">Password :</i></label>
+                                <br><br>
+                                <input type="password" name="pass" value="123"id="pass" placeholder="Password" required  name="pwd1"  onchange="form.pwd2.pattern = RegExp.escape(this.value);"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="fa fa-lock-outline"></i>Confirm Password :</label>
+                                <br><br>
+                                <input type="password" id="re_pass"value="123" placeholder="Repeat your password" required name="pwd2"/>
+                            </div>
+                            <div class="form-group">
+                                    <label for="date"><i class="fa fa-date"></i>BirthDate :</label>
+                                    <br><br>
+                                    <input type="date" name="date" id="date" placeholder="" required/>
+                            </div>
+                            <div class="form-group">
+                                Gender :<br/>
+                                <input type="radio" name="gender" value="male" checked> Male
+                                <input type="radio" name="gender" value="female"> Female
+                            </div>
+                            <div class="form-group">
+                                    Select a picture: <input type="file" name="myPic" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="img/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="/login" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

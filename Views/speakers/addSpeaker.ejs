@@ -1,0 +1,39 @@
+<body>
+    <div class="modal-dialog">
+		<div class="modal-content">
+			
+			<hr />
+			<div class="modal-body">
+				<form   action="/speakers/add" method="post" role="form" enctype="multipart/form-data" >
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock"></span>
+							</span>
+							<label>Name</label>&nbsp;
+							<input type="text" name="name" class="form-control" placeholder="Name" />
+
+						</div>
+
+                    </div>
+                    <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+								</span>
+								<label>Image</label>&nbsp;
+                                <input type="file" name="speakerImage" class="form-control" />
+    
+                            </div>
+    
+                        </div>
+
+					<div class="form-group text-center">
+						<button type="submit" class="btn btn-success btn-lg" >Add</button>
+						
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>

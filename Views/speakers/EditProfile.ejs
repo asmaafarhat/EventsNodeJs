@@ -1,0 +1,72 @@
+<body>
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <hr />
+                <div class="modal-body">
+                    <form action="/speakers/EditProfile/<%=speaker.fullName%>" method="post" enctype="multipart/form-data"  role="form" >
+                        
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input type="text" name="name" value="<%=speaker.fullName%>" class="form-control" placeholder="Name"  />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                    <input type="text" name="email" value="<%=speaker.email%>"  class="form-control" placeholder="email" />
+                                </div>
+                            </div>
+                            
+                        <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                    <input type="password" name="password" value="<%=speaker.password%>"  class="form-control" placeholder="password" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                        </span>
+                                        <input type="text" name="jobTitle" value="<%=speaker.jobTitle%>"  class="form-control" placeholder="jobTitle" />
+                                    </div>
+                                </div>
+                                    <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-user"></span>
+                                                </span>
+                                                <input type="text" name="gender" value="<%=speaker.gender%>"  class="form-control" placeholder="gender" disabled/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-lock"></span>
+                                                    </span>
+                                                    <img src="/images/<%=speaker.image%>" style="width:200px;height:200px"/>
+                                                    <input type="file" name="speakerImage" class="form-control" />
+                                                </div>
+                                            </div>
+                                            
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success btn-lg" >update</button>
+                            
+                        </div>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    
+    

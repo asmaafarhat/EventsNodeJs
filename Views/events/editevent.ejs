@@ -1,0 +1,46 @@
+<div class="container">            
+    <div  class="row justify-content-center align-items-center mt-2">
+        <div class="col-md-6">
+            <form action="/events/edit/<%=event._id%>" method="post">
+                <div class="form-group">
+                    <label for="title">Title:</label><br>
+                    <input type="text" name="title" value="<%=event.title%>" id="title" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="example-datetime-local-input" class="col-2 col-form-label">Date&Time</label>
+                    <input class="form-control" name="date" value="<%=event.eventDate%>" type="datetime-local"  id="example-datetime-local-input"> 
+                </div>
+                <div class="form-group">
+                    <label for="main">Main Speaker</label>
+                    <select name="mainSpeaker" class="form-control" id="main">
+                        <option value="<%=event.mainSpeaker._id%>" selected><%=event.mainSpeaker.fullName%></option>
+                        <% speakers.forEach((speaker)=>{%>
+                            <%if(event.mainSpeaker.fullName != speaker.fullName ) {%>
+                                <option value="<%=speaker._id%>"><%=speaker.fullName%></option>
+                            <%}%>
+                        <%})%>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="other">Other Speakers</label>
+                    <select multiple name="otherSpeakers" class="form-control" id="other">
+                        <% speakers.forEach((speaker)=>{%>
+                            <% if(event.others.includes(speaker)){%>
+                                <option value="<%=speaker._id%>" selected><%=speaker.fullName%></option>
+                            <%} else {%> 
+                                <option value="<%=speaker._id%>" ><%=speaker.fullName%></option>
+                            <%}%>
+                        <%})%>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<% speakers.forEach((speaker)=>{%>
+<%})%>

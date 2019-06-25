@@ -1,0 +1,90 @@
+            <h3> Speakers List </h3>
+        <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">name</th>
+                    <th scope="col">image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% speakers.forEach((speaker)=>{%>
+                    <tr>
+                      <td><%=speaker._id%></td>
+                      <td><%=speaker.fullName%></td>
+                      <td><img src="/images/<%=speaker.image%>" style="width:100px;height:100px"/></td>
+                      <td>
+                          <button class="btn btn-primary btnShowData" onclick="GetData(this);"data-toggle="modal" data-target="#mymodal" val="<%=speaker._id%>">Show Data</button>
+                        <a class="btn btn-primary" href="/speakers/edit/<%=speaker._id%>">Edit</a>
+                        <a class="btn btn-danger" href="/speakers/delete/<%=speaker._id%>">Delete</a>
+                     
+                      </td>
+                    </tr>
+                  <%})%>
+                </tbody>
+              </table>
+      
+        <br/>
+
+
+        
+    <div class="modal" id="mymodal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <p class="modal-title">Modal One</p>
+              </div>
+              <div id="fullDataAjax" class="modal-body text-center">
+                  
+              </div>
+              
+          </div>
+      </div>
+      </div>
+      </div>
+      
+  <script>
+      function GetData(e){
+        // alert($(e).attr("val"));
+         $.ajax({
+          
+           url: `http://localhost:8080/speakers/getById/${$(e).attr("val")}`,
+           method:"get",
+           success: function (response) {
+              //alert("sucsses");
+             $("#fullDataAjax").html("");
+             let table =$(`
+             <table class="table">
+     <thead class="thead-dark">
+       <tr>
+       
+         <th scope="col">Key</th>
+         <th scope="col">Value</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <th scope="row">ID</th>
+         <td>${response._id}</td>
+       </tr>
+       <tr>
+         <th scope="row">Name</th>
+         <td>${response.fullName}</td>
+       </tr>
+       <tr>
+         <th scope="row">image</th>
+         <td>${response.image}</td>
+       </tr>
+       
+     </tbody>
+   </table>
+             `);
+           $("#fullDataAjax").append(table);
+           },
+           error:function(err){
+                       alert("failed")
+                   }
+         });
+       }
+       
+   </script>
